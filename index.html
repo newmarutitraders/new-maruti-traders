@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NEW MARUTI TRADERS | FMCG E-Commerce</title>
+  <style>
+    body{margin:0;font-family:Segoe UI;background:#f4f7ff}
+    header{background:linear-gradient(90deg,#0d47a1,#6a1b9a);padding:15px;color:white;display:flex;justify-content:space-between;align-items:center}
+    .logo-box{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:700}
+    .logo-box img{height:70px;width:70px;border-radius:8px}
+    nav a{margin:0 12px;cursor:pointer;font-weight:600}
+    .page{padding:40px}
+    .hidden{display:none}
+    h1{text-align:center;margin-bottom:25px}
+    .brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+    .brand-card{background:white;padding:40px;border-radius:12px;text-align:center;font-size:22px;font-weight:bold;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.15)}
+    .product-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:25px;
+}
+.category-block{
+  margin-top:60px;
+  clear:both;
+}
+
+    .product{background:white;padding:20px;border-radius:12px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+    .product button{padding:8px 15px;border:none;border-radius:6px;color:white;margin:5px;cursor:pointer}
+    .buy{background:#2e7d32}
+    .cart{background:#ef6c00}
+    .back{margin-top:20px;padding:10px 20px;border:none;background:#1565c0;color:white;border-radius:6px}
+    .about-box{display:flex;gap:30px;background:white;padding:30px;border-radius:15px}
+    .about-box img{border:50%}
+    #cartItems div{background:white;padding:15px;margin:10px 0;border-radius:8px}
+    .checkout{padding:12px 25px;background:#2e7d32;color:white;border:none;border-radius:8px}
+    footer{text-align:center;background:#0d47a1;color:white;padding:12px}
+    .category-block{
+  margin-top:50px;
+}
+
+.category-title{
+  font-size:26px;
+  color:#0d47a1;
+  border-left:6px solid #ff9800;
+  padding-left:15px;
+  margin-bottom:20px;
+}
+
+.product-img{
+  width:100%;
+  height:160px;
+  object-fit:contain;
+  margin-bottom:10px;
+}
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+  z-index:999;
+  cursor:pointer;
+}
+
+.whatsapp-float img{
+  width:35px;
+  height:35px;
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-box">
+    <img src="NMT_Logo-removebg-preview.png" alt="Logo">
+    <span>NEW MARUTI TRADERS</span>
+  </div>
+  <nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('brands')">Authorized Distributors</a>
+    <a onclick="showPage('about')">About the founder</a>
+    <a onclick="showPage('contact')">Contact Us</a>
+    <a onclick="showPage('cart')">🛒 Cart (<span id="cartCount">0</span>)</a>
+  </nav>
+
+</header>
+
+<section id="home" class="page">
+  <h1>Welcome to NEW MARUTI TRADERS</h1>
+  <p style="text-align:center;font-size:16px;color:#444;margin-top:-10px;">General Merchant & Commision Agent</p>
+  <p style="text-align:center;font-size:16px;color:#444;margin-top:-10px;">Serving Since <b>2000</b> | Trusted FMCG Distribution Partner</p>
+  <p style="max-width:900px;margin:20px auto;font-size:18px;line-height:1.7;text-align:center;">
+    Established in the year <b>2000</b>, NEW MARUTI TRADERS is a leading FMCG distribution and wholesale supply business based in Ujjain, Madhya Pradesh. 
+    We specialize in delivering high-quality fast moving consumer goods (FMCG) to retailers, wholesalers, hotels, 
+    supermarkets, and institutional buyers with reliability, speed, and trust.
+  </p>
+  <p style="max-width:900px;margin:20px auto;font-size:18px;line-height:1.7;text-align:center;">
+    With years of experience and strong logistics support, we ensure timely delivery, competitive pricing, 
+    and genuine branded products. Our goal is to empower retailers by providing a dependable supply chain 
+    and excellent service.
+  </p>
+
+
+  <section style="margin-top:50px;text-align:center;">
+<h2>Catering & HoReCa</h2>
+    <p style="max-width:900px;margin:20px auto;font-size:18px;line-height:1.7;text-align:center;">
+    We also specialize in bulk supply for <b>Hotels, Restaurants, Cafes, Caters, and Institutions</b>.
+     Our HoReCa division offers high-quality ingredientsar competitive wholesale rates. We also have a wide range of Chineese and Italian Sauces, Italian Vegetables,
+    all king of frozen food, Amul Products, Cheese, Butter, etc.
+    Some of our valuable Hotel clients are listed below. 
+  </p>
+  <button style="padding:14px 30px;font-size:18px;background:white;color:#e65100;border:none;border-radius:8px;cursor:pointer;font-weight:600;" 
+          onclick="openHoReCa()">
+    Explore HoReCa Products
+  </button>
+  </section>
+  
+  
+  <!-- TRUST BADGES -->
+  <section style="margin-top:50px;text-align:center;">
+    <h2>Why Choose Us?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:25px;">
+      <div class="product"><h3>25+ Years Experience</h3><p>Serving since 2000 with reliability and trust.</p></div>
+      <div class="product"><h3>1000+ Retailers</h3><p>Strong distribution network across Ujjain & nearby regions.</p></div>
+      <div class="product"><h3>Fast Delivery</h3><p>Quick & reliable supply chain management.</p></div>
+      <div class="product"><h3>Genuine Products</h3><p>Authorized distribution of top FMCG brands.</p></div>
+    </div>
+  </section>
+
+  <!-- BUSINESS STATS -->
+  <section style="margin-top:60px;text-align:center;">
+    <h2>Our Business in Numbers</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:25px;">
+      <div class="product"><h1>25+</h1><p>Years of Excellence</p></div>
+      <div class="product"><h1>1000+</h1><p>Retail Partners</p></div>
+      <div class="product"><h1>5000+</h1><p>Orders Delivered</p></div>
+      <div class="product"><h1>15+</h1><p>Brands Distributed</p></div>
+    </div>
+  </section>
+
+  <!-- TRUST CERTIFICATES -->
+  <section style="margin-top:60px;text-align:center;">
+    <h2>Trusted & Certified Distributor</h2>
+    <p style="max-width:800px;margin:15px auto;font-size:17px;">
+      We are proud authorized distributors for leading FMCG brands. Our certifications and long-term partnerships reflect our commitment to quality, service excellence, and business ethics.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:20px;">
+      <div class="product">FSSAI Approved (India)</div>
+      <div class="product">Authorized Distributor</div>
+      <div class="product">GST Registered</div>
+      <div class="product">Trusted Supply Partner</div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section style="margin-top:70px;">
+    <h2 style="text-align:center;">Our Achievements</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;align-items:center;margin-top:30px;">
+      <img src="Achivements/Achievments_2.jpeg" style="width:100%;border-radius:12px;">
+      <p style="font-size:17px;line-height:1.7;background:white;padding:20px;border-radius:12px;">
+        Proud to be recognized as Best Performer FMCG Distributor by Haldiram’s. This award reflects our consistent dedication, strong market presence, and commitment to delivering quality products and reliable service to our customers. We thank our partners and customers for their continued trust and support.
+      </p>
+    </div>
+  </section>
+
+  <!-- OUR CLIENTS -->
+  <section style="margin-top:70px;text-align:center;">
+    <h2>Our Valued Customers</h2>
+    <p style="max-width:800px;margin:15px auto;font-size:17px;">We proudly serve a wide range of retailers, wholesalers, supermarkets, hotels, and institutional buyers.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;margin-top:30px;">
+      <div class="product"><img src="gail client.webp" style="height:60px;object-fit:contain;"><p>Gail (India) Limited</p></div>
+      <div class="product"><img src="lapinoz.webp" style="height:60px;object-fit:contain;"><p>LaPinoz Pizza Ujjain</p></div>
+      <div class="product"><img src="rudraksh.webp" style="height:60px;object-fit:contain;"><p>Rudraksh Club & Resort</p></div>
+      <div class="product"><img src="anjushree.webp" style="height:60px;object-fit:contain;"><p>Hotel Anjushree</p></div>
+    </div>
+  </section>
+</section>
+
+<section id="brands" class="page hidden">
+  <h1>Authorized Distributor Brands</h1>
+  <div class="brand-grid">
+    <div class="brand-card" onclick="openCompany('haldiram')"><img src="haldiram.webp" style="height: 100px;object-fit:contain;"><p>Haldiram's</p> </div>
+    <div class="brand-card" onclick="openCompany('hul')"><img src="uniliver.webp" style="height: 100px;object-fit:contain;"><p>Hindustan Uniliver Limited</p></div>
+    <div class="brand-card" onclick="openCompany('coke')"><img src="coke.webp" style="height: 100px"><p>CocaCola</p></div>
+  </div>
+  <p>
+
+  </p>
+  <div class="brand-grid">
+    <div class="brand-card" onclick="openCompany('gow')"><img src="gowerdhan.webp" style="height: 100px"><p>Gowerdhan</p></div>
+    <div class="brand-card" onclick="openCompany('redbull')"><img src="Red Bull.jpg" style="height: 100px"><p>Redbull</p></div>
+  </div>
+</section>
+
+<section id="products" class="page hidden">
+  <h1 id="companyTitle"></h1>
+  <div id="productGrid"></div>
+  <button class="back" onclick="showPage('brands')">⬅ Back</button>
+
+</section>
+<section id="horecaProducts" class="page hidden">
+
+  <h1 style="text-align:center">HoReCa Supply Products</h1>
+
+  <div class="category-block">
+    <h2 class="category-title">Frozen Foods</h2>
+    <div class="product-grid" id="frozen"></div>
+  </div>
+
+  <div class="category-block">
+    <h2 class="category-title">Tin Food</h2>
+    <div class="product-grid" id="tin"></div>
+  </div>
+
+<div class="category-block">
+    <h2 class="category-title">Sauces and Toppings</h2>
+    <div class="product-grid" id="tin"></div>
+  </div>
+  
+
+</section>
+
+
+
+<section id="cart" class="page hidden">
+  <h1>Shopping Cart</h1>
+  <div id="cartItems"></div>
+  <h2 id="total"></h2>
+  <button class="checkout" onclick="sendWhatsAppOrder()">Order via WhatsApp</button>
+</section>
+
+<section id="about" class="page hidden">
+  <h1>About The Founder</h1>
+  <div class="about-box">
+    <img src="IMG-20230914-WA0015.jpg" width="200">
+    <div>
+      <h3>Rahul Dhamani</h3>
+      <p>Established in <b>2000</b>, NEW MARUTI TRADERS is a trusted FMCG distribution company located at 13/1, Tilak Marg, Indore Gate, Ujjain 456001. We deliver high quality FMCG products across Ujjain with reliability and professionalism.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="page hidden">
+  <h1>Contact Us</h1>
+  <div class="logo-box">
+    <img src="NMT_Logo-removebg-preview.png" alt="Logo">
+    <span>NEW MARUTI TRADERS</span>
+  </div>
+  <h3>
+  <p>Rahul Dhamani</p>
+  </h3>
+  <p>📞 9826022423</p>
+  <p>📍 13/1, Tilak Marg, Indore Gate, Ujjain 456001</p>
+  <p>📧 newmaruti.ujjain@gmail.com</p>
+  <h2 style="margin-top:40px;">Find Us On Map</h2>
+
+<div style="margin-top:20px;border-radius:15px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.15);">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.7399553799114!2d75.77508797562513!3d23.179689279063965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963755749c30189%3A0x19975518f4d153d!2sNEW%20MARUTI%20TRADERS!5e0!3m2!1sen!2sin!4v1771748900736!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+</section>
+
+<footer>© 2026 NEW MARUTI TRADERS</footer>
+
+<script>
+const products = {
+  hul: [
+    { name: "Surf Excel", price: 120, img: "NMT Logo.jpg" },
+  ],
+  gow: {
+  dairy:[
+    { name: "Ghee 1L Jar", price: 40, img: "Gow/ghee1Ljar.webp" },
+    { name: "Ghee 500ml Jar", price: 40, img: "Gow/ghee500mljar.webp" },
+    { name: "Ghee 200ml Jar", price: 40, img: "Gow/ghee200mljar.webp" },
+    { name: "Ghee 1L RT Pack", price: 40, img: "Gow/Ghee1Lrt.webp" },
+    { name: "Ghee 200ml RT Pack", price: 40, img: "Gow/ghee200mlrt.webp" },
+    { name: "Ghee 500ml RT Pack", price: 40, img: "Gow/Ghee500mlrt.webp" },
+    { name: "Ghee 5L Bucket", price: 40, img: "Gow/ghee5Lbucket.webp" },
+    { name: "Ghee 10kg Tin Pack", price: 40, img: "Gow/ghee10kgtin.webp" },
+  ]
+},
+  haldiram: {
+    namkeen:[
+    { name: "Bhujia Sev", size: "Packaging:  200g   400g   1kg  ₹5 ₹10" , img: "Haldiram/Namkeen/bhujia.png" },
+    { name: "Aloo Bhujia", size: "Packaging: 200g  400g   1kg ₹5 ₹10" , img: "Haldiram/Namkeen/Aloobhujia.png" },
+    { name: "Moong Dal", size: "Packaging: 200g ₹5 ₹10" , img: "Haldiram/Namkeen/moongdal.png" },
+    { name: "Chatpata Dal", size: "Packaging: 200g ₹5 ₹10" , img: "Haldiram/Namkeen/chatpatadal.png" },
+    { name: "Soya Sticks", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/soyasticks.png" },
+    { name: "Soya Chips", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/soyachips.png" },
+    { name: "Khatta Meetha", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/khattameetha.png" },
+    { name: "Mixture", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/mixture.png" },
+    { name: "Teekha Meetha", size: "Packaging: ₹5 ₹10",  img: "Haldiram/Namkeen/teekhameetha.png" },
+    { name: "Spicy Peanuts", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/spicypeanuts.png" },
+    { name: "Tasty Nuts",  size: "Packaging: 200g ₹5 ₹10", img: "Haldiram/Namkeen/tastynuts.png" },
+    { name: "Salted Peanuts", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/saltedpeanuts.png" },
+    { name: "Chana Nuts", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/chananuts.png" },
+    { name: "Roasted Chana", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/roastedchana.png" },
+    { name: "Chana Jor Garam", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/chanajor.png" },
+    { name: "Aloo Laccha", size: "Packaging: 200g",  img: "Haldiram/Namkeen/aloolaccha.png" },
+    { name: "Punjabi Tadka", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/punjabi.png" },
+    { name: "Lite Chiwda", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/litechiwda.png" },
+    { name: "Cornflakes Mixture", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/cornflakes.png" },
+    { name: "Ratlami Sev", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/ratlamisev.png" },
+    { name: "Navratan Mixture", size: "Packaging: 200g",  img: "Haldiram/Namkeen/navratan.png" },
+    { name: "Papad Chawanu", size: "Packaging: 200g",  img: "Haldiram/Namkeen/papadchavanu.png" },
+    { name: "Dal Biji", size: "Packaging: 200g",  img: "Haldiram/Namkeen/dalbiji.png" },
+    { name: "Kaju Kashmiri Mixture", size: "Packaging: 200g",  img: "Haldiram/Namkeen/kajukashmiri.png" },
+    { name: "Dry Fruit Mixture", size: "Packaging: 200g", img: "Haldiram/Namkeen/dryfruit.png" },
+    { name: "Golden Mixture", size: "Packaging: 200g",  img: "Haldiram/Namkeen/goldenmix.png" },
+    { name: "All In One Mixture", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/allinone.png" },
+    { name: "Mini Samosa", size: "Packaging: 200g",  img: "Haldiram/Namkeen/minisamosa.png" },
+    { name: "Mathri", size: "Packaging: 200g",  img: "Haldiram/Namkeen/mathri.png" },
+    { name: "Murukku", size: "Packaging: 200g", img: "Haldiram/Namkeen/murukku.png" },
+    { name: "Mini Bhakarwadi", size: "Packaging: 200g ₹5 ₹10", img: "Haldiram/Namkeen/minibhak.png" },
+    { name: "Chekarlu", size: "Packaging: 200g",  img: "Haldiram/Namkeen/chekarlu.png" },
+    { name: "Phalhari Chiwda", size: "Packaging: 200g ₹5 ₹10", img: "Haldiram/Namkeen/phalharimix.png" },
+    { name: "Panchratan Mixture", size: "Packaging: 200g  ₹10", img: "Haldiram/Namkeen/panchratanmix.png" },
+    { name: "Lemon Bhel", size: "Packaging: 200g ₹5 ₹10",  img: "Haldiram/Namkeen/lemonbhel.png" },
+    { name: "Bhelpuri", size: "Packaging: 200g",  img: "Haldiram/Namkeen/bhelpuri.png" },
+    { name: "Golgappa", size: "Packaging: 200g",  img: "Haldiram/Namkeen/golgappa.png" },
+    { name: "Boondi", size: "Packaging: 200g",  img: "Haldiram/Namkeen/boondi.png" },
+    { name: "Gol Kachori", size: "Packaging: 200g",  img: "Haldiram/Namkeen/golkachori.png" },
+    { name: "Masala Kaju", size: "Packaging: 50g",  img: "Haldiram/Namkeen/masala kaju.png" },
+    { name: "Salted Kaju", size: "Packaging: 50g",  img: "Haldiram/Namkeen/salted kaju.png" },
+    { name: "Vermicili", size: "Packaging: 150g",  img: "Haldiram/Namkeen/vermicili.png" },
+    { name: "Pasta", size: "Packaging: 150g",  img: "Haldiram/Namkeen/pasta.png" }
+  ],
+
+  sweets:[
+    { name: "Chocolate Soan Papdi", size: "Packaging: 250g", price: 70, img: "Haldiram/Sweets/chocolatesoanpapdi.png" },
+    { name: "Coconut Soan Papdi", size: "Packaging: 250g", price: 70, img: "Haldiram/Sweets/cocnutsoanpapdi.png" },
+    { name: "Flavour Soan Cake", size: "Packaging: 400g", price: 130, img: "Haldiram/Sweets/flavoursoancake.png" },
+    { name: "Mini Soan Cake", size: "Packaging: 200g", price: 0, img: "Haldiram/Sweets/minisoancake.png" },
+    { name: "Orange Soan Papdi", size: "Packaging: 250g", price: 70, img: "Haldiram/Sweets/orangesoanpapdi.png" },
+    { name: "Soan Cake", size: "Packaging: 200g 400g", price: 70, img: "Haldiram/Sweets/soancake.png" },
+    { name: "Soan Papdi", size: "Packaging: 250g 500g 1kg", price: 70, img: "Haldiram/Sweets/soanpapdi.png" },
+    { name: "Special Soan Papdi", size: "Packaging: 250g 500g", price: 0, img: "Haldiram/Sweets/specialsoanpapdi.png" },
+    { name: "Cham Cham", size: "Packaging: 1kg", price: 215, img: "Haldiram/Sweets/chamcham.png" },
+    { name: "Gulabjamun", size: "Packaging: 1kg", price: 215, img: "Haldiram/Sweets/gulabjamun.png" },
+    { name: "Kesar Anguri", size: "Packaging: 1kg", price: 215, img: "Haldiram/Sweets/kesaranguri.png" },
+    { name: "Mini Gulabjamun", size: "Packaging: 500g", price: 125, img: "Haldiram/Sweets/minigulabjamun.png" },
+    { name: "Mini Rasgulla", size: "Packaging: 500g", price: 125, img: "Haldiram/Sweets/minirasgulla.png" },
+    { name: "Raj Bhog", size: "Packaging: 1kg", price: 215, img: "Haldiram/Sweets/rajbhog.png" },
+    { name: "Rasgulla", size: "Packaging: 500g 1kg", price: 215, img: "Haldiram/Sweets/rasgulla.png" },
+    { name: "Rasmalai", size: "Packaging: 1kg", price: 215, img: "Haldiram/Sweets/rasmalai.png" },
+    { name: "Agra Taj Petha", size: "Packaging: 350g", price: 70, img: "Haldiram/Sweets/agratajpetha.png" },
+    { name: "Kaju Katli", size: "Packaging: 200g 400g", price: 250, img: "Haldiram/Sweets/kajukatli.png" },
+  ],
+
+  waffers:[
+    { name: "Halke Fulke Chilli", size: "Packaging: ₹5 ₹10",price: 5, img: "Haldiram/Waffers/chilli.png" },
+    { name: "Halke Fulke Chilli", size: "Packaging: 100g", price: 30, img: "Haldiram/Waffers/chilli1.png" },
+    { name: "Halke Fulke Cream & Onion", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/creamonion.png" },
+    { name: "Halke Fulke Cream & Onion", size: "Packaging: 100g", price: 30, img: "Haldiram/Waffers/creamonion1.png" },
+    { name: "Fatafat Bhel", size: "Packaging: 70g", price: 70, img: "Haldiram/Waffers/fatafatbhel.png" },
+    { name: "Hoops", size: "Packaging: ₹5  ₹10", price: 5, img: "Haldiram/Waffers/hoops.png" },
+    { name: "Potato Lite", size: "Packaging: ₹5", price: 5, img: "Haldiram/Waffers/potatolite.png" },
+    { name: "Rings", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/rings.png" },
+    { name: "Halke Fulke Plain Salted", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/salted.png" },
+    { name: "Halke Fulke Plain Salted", size: "Packaging: 100g", price: 30, img: "Haldiram/Waffers/salted1.png" },
+    { name: "Takatak Fleming Masala", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/takatakfleming.png" },
+    { name: "Takatak Chatpata Masala", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/takatakmasala.png" },
+    { name: "Takatak Tomato", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/takataktomato.png" },
+    { name: "Wheels", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/wheels.png" },
+    { name: "Yummy Bites", size: "Packaging: ₹5 ₹10", price: 5, img: "Haldiram/Waffers/yummybites.png" },
+  ],
+
+  papad:[
+    { name: "Bikaneri Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/bikaneripapad.png" },
+    { name: "Coin Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/coinpapad.png" },
+    { name: "Lajij Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/lajijpapad.png" },
+    { name: "Moong Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/moongpapad.png" },
+    { name: "Plain Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/plainpapad.png" },
+    { name: "Punjabi Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/punjabipapad.png" },
+    { name: "Red Chilli Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/redchillipapad.png" },
+    { name: "Uadad Papad", size: "Packaging: 1kg", price: 260, img: "Haldiram/Papad/udadpapad.png" },
+  ],
+
+  syrups:[
+    { name: "Pineapple and Kala Khatta", size: "Packaging: 150g", price: 30, img: "Haldiram/Syrups/kakakhatta.png" },
+    { name: "Orange and Lemon", size: "Packaging: 150g", price: 30, img: "Haldiram/Syrups/orange.png" },
+    { name: "Rose and Khus", size: "Packaging: 150g", price: 30, img: "Haldiram/Syrups/rose.png" },
+    { name: "Shai Thandai", size: "Packaging: 150g", price: 30, img: "Haldiram/Syrups/thandai.png" },
+  ],
+
+  ghee:[
+    { name: "Ghee Tin", size: "Packaging: 1L", price: 0, img: "Haldiram/Ghee/tin.png" },
+    { name: "Ghee Tetra", size: "Packaging: 500ml 1L", price: 0, img: "Haldiram/Ghee/tetra.png" },
+  ]
+  },
+
+  coke: {
+  beverages:[
+    { name: "Sprite 250ml", price: 20, img: "sprite.jpg" },
+    { name: "Thumpsup 250ml", price: 20, img: "thumps up.jpg" },
+    { name: "Fanta 250ml", price: 20, img: "fanta.jpg" },
+    { name: "Coke 250ml", price: 20, img: "cokee.jpg" },
+    { name: "Limca 250ml", price: 20, img: "limca.jpg" },
+    { name: "Maaza 250ml", price: 20, img: "maaza.jpg" },
+    { name: "Sprite 750ml", price: 45, img: "sprite.jpg" },
+    { name: "Thumpsup 750ml", price: 45, img: "thumps up.jpg" },
+    { name: "Fanta 750ml", price: 45, img: "fanta.jpg" },
+    { name: "Coke 750ml", price: 45, img: "cokee.jpg" },
+    { name: "Limca 750ml", price: 45, img: "limca.jpg" },
+    { name: "Maaza 600ml", price: 45, img: "maaza.jpg" }
+  ]
+},
+
+redbull: {
+  beverages:[
+    { name: "Redbull 250ml", price: 125, img: "redbull/redbull.webp" },
+  ]
+},
+
+};
+const horecaProducts={
+  frozen:[
+  {name:"Green Peas",price:80, img:"catering supply/frozen/green peas.webp"},
+  {name:"Sweet Corn",price:70, img:"catering supply/frozen/sweet corn.webp"},
+  {name:"French Fries",price:260, img:"catering supply/frozen/french fries.webp"},
+  {name:"Mango Pulp",price:1900, img:"catering supply/frozen/mango pulp.webp"},
+  {name:"Mango Slice",price:1900, img:"catering supply/frozen/Mango slice.webp"},
+  {name:"Hara Bhara Kabab",price:1900, img:"catering supply/frozen/hara bhara kabab.webp"},
+  {name:"Aloo Tikki",price:1900, img:"catering supply/frozen/aloo tikki.webp"},
+  {name:"Burger Tikki",price:1900, img:"catering supply/frozen/burger tikki.webp"},
+  {name:"Coconut Malai",price:1900, img:"catering supply/frozen/coconut slice.webp"},
+  {name:"Frozen Strawberies",price:1900, img:"catering supply/frozen/frozen strawberries.webp"},
+  {name:"Hara Chana",price:1900, img:"catering supply/frozen/green chana.webp"},
+  {name:"Jamun Pulp",price:1900, img:"catering supply/frozen/jamum pulp.webp"},
+  {name:"Mix Veg",price:1900, img:"catering supply/frozen/mix veg.webp"},
+  {name:"Sitafal Pulp",price:250, img:"catering supply/frozen/sitafal pulp.webp"},
+  {name:"Soya Chaap",price:1900, img:"catering supply/frozen/soya chaap.webp"},
+  {name:"Spring Roll Sheets",price:120, img:"catering supply/frozen/spring roll sheets.webp"},
+],
+tin:[
+  {name:"Baby Corn Tin",price:120, img:"catering supply/tin/baby corn.jpg"},
+  {name:"Baked Bean Tin",price:120, img:"catering supply/tin/baked bean.jpg"},
+  {name:"Cherry Tin",price:120, img:"catering supply/tin/cherry tin.jpg"},
+  {name:"Coconut Cream Tin",price:120, img:"catering supply/tin/coconut cream.jpg"},
+  {name:"Coconut Milk Tin",price:120, img:"catering supply/tin/coconut milk.jpg"},
+  {name:"Fruit Cocktail Tin",price:120, img:"catering supply/tin/fruit cocktail.jpg"},
+  {name:"Litchi Tin",price:120, img:"catering supply/tin/litchi tin.jpg"},
+  {name:"Button Mushroom Tin",price:120, img:"catering supply/tin/mushroom.jpg"},
+  {name:"Pineapple Slice Tin",price:120, img:"catering supply/tin/pineapple slice.jpg"},
+  {name:"Sweet Corn Tin",price:120, img:"catering supply/tin/sweet corn tin.jpg"},
+]
+};
+let cart=[];
+
+function showPage(page){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));document.getElementById(page).classList.remove('hidden');}
+
+function openCompany(company){
+
+  showPage('products');
+
+  document.getElementById('companyTitle').innerText =
+    company.toUpperCase() + " Products";
+
+  let html = "";
+
+  Object.keys(products[company]).forEach(category => {
+
+    html += `
+      <div class="category-block">
+        <h2 class="category-title">${category.toUpperCase()}</h2>
+        <div class="product-grid">
+    `;
+
+    products[company][category].forEach(p => {
+
+      html += `
+        <div class="product">
+          <img src="${p.img}" class="product-img">
+          <h3>${p.name}</h3>
+<p style="font-size:14px;color:#666;margin:4px 0;">${p.size || ""}</p>
+<p>₹${p.price}</p>
+          <button class="buy" onclick="buyNow('${p.name}',${p.price})">Buy Now</button>
+          <button class="cart" onclick="addToCart('${p.name}',${p.price})">Add to Cart</button>
+        </div>
+      `;
+
+    });
+
+    html += `</div></div>`;
+
+  });
+
+  document.getElementById('productGrid').innerHTML = html;
+}
+function openHoReCa(){
+  showPage('horecaProducts');
+
+  Object.keys(horecaProducts).forEach(cat=>{
+
+    let html="";
+
+    horecaProducts[cat].forEach(p=>{
+      html+=`
+        <div class="product">
+          <img src="${p.img}" class="product-img">
+          <h3>${p.name}</h3>
+          <p>₹${p.price}</p>
+          <button class="buy">Buy Now</button>
+          <button class="cart" onclick="addToCart('${p.name}',${p.price})">Add to Cart</button>
+        </div>
+      `;
+    });
+
+    document.getElementById(cat).innerHTML=html;
+
+  });
+}
+
+
+function addToCart(name,price){cart.push({name,price});updateCart();alert(name+" added to cart");}
+function buyNow(name,price){alert("Proceeding to buy "+name+" for ₹"+price);} 
+
+function updateCart(){document.getElementById('cartCount').innerText=cart.length;let list="";let total=0;
+cart.forEach(p=>{list+=`<div>${p.name} - ₹${p.price}</div>`;total+=p.price;});
+document.getElementById('cartItems').innerHTML=list;document.getElementById('total').innerText="Total: ₹"+total;}
+
+function sendWhatsAppOrder(){
+
+  if(cart.length === 0){
+    alert("Your cart is empty!");
+    return;
+  }
+
+  let msg = "Hello NEW MARUTI TRADERS,%0A%0AI want to place an order:%0A";
+
+  let total = 0;
+
+  cart.forEach((p,i)=>{
+    msg += `${i+1}. ${p.name} - ₹${p.price}%0A`;
+    total += p.price;
+  });
+
+  msg += `%0A-------------------------%0ATotal: ₹${total}%0A%0AName:%0APhone:%0AAddress:`;
+
+  let phone = "919826702423";  // <-- YOUR WhatsApp number
+
+  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
+}
+</script>
+<a href="#" id="whatsappBtn" onclick="sendWhatsAppOrder()" class="whatsapp-float">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+</body>
+</html>
